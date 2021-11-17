@@ -2,39 +2,37 @@ CREATE DATABASE ARROPAR;
 
 USE ARROPAR;
 
-CREATE TABLE ARTICULOS(
-	ID_Articulos int NOT NULL,
-	Caracteristicas varchar(50) NOT NULL,
-	Categoria varchar(150) NOT NULL,
-	Precio int NOT NULL
+CREATE TABLE Articulos_donados(
+	ID_Articulo int NOT NULL,
+	Tipo_de_ropa varchar(50) NOT NULL,
+	Talle varchar(50) NOT NULL,
+	Color varchar(50) NOT NULL
     );
 
-CREATE TABLE VENDEDORES(
-	ID_vendedor int NOT NULL,
+CREATE TABLE Instituciones_de_caridad(
+	ID_Institucion int NOT NULL,
 	Nombre varchar(50) NOT NULL,
-	Direccion varchar(150) NOT NULL,
-    Datos_bancarios varchar(150) NOT NULL,
-    Telefono int NOT NULL,
-    Mail Varchar(50) NOT NULL
+	Direccion varchar(50) NOT NULL,
+    	Telefono int NOT NULL,
+    	Mail Varchar(50) NOT NULL
     );
     
-    CREATE TABLE ENVIOS(
+    CREATE TABLE Envios(
 	ID_envios int NOT NULL,
 	Fecha date NOT NULL,
 	Transporte varchar(150) NOT NULL
     );
     
-    CREATE TABLE COMPRADORES(
-	ID_Compradores int NOT NULL,
+    CREATE TABLE Usuarios(
+	ID_usuarios int NOT NULL,
 	Nombre varchar(50) NOT NULL,
-	Medio_de_Pago varchar(150) NOT NULL,
 	Mail varchar(50) NOT NULL,
 	Direccion varchar(50) NOT NULL,
     Telefono int NOT NULL
     );
     
-	CREATE TABLE PAGOS(
-	ID_Pagos int NOT NULL,
-	Comprobante varchar(50) NOT NULL,
-	Fecha date NOT NULL
+	CREATE TABLE Modalidad_envios(
+	ID_Modalidad int NOT NULL,
+	Tipos_modalidad varchar(50) NOT NULL,
+	Descripcion_modalidad varchar(150) NOT NULL
     );
