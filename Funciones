@@ -1,0 +1,29 @@
+Función 1:
+
+CREATE FUNCTION `Raiz cuadrada` (Id_usuarios INT) 
+RETURNS float
+reads sql data
+BEGIN
+	DECLARE total FLOAT;
+    SET Total = (SELECT SQRT(Telefono) FROM arropar.usuarios WHERE id = Id_usuarios);
+
+RETURN TOTAL;
+END
+
+
+------------------------------------------------------------
+Fucion 2:
+
+CREATE FUNCTION 'Articulos XL`(Talle VAR) 
+RETURNS varchar(10) 
+Reads sql data
+BEGIN
+DECLARE a VARCHAR(10);
+
+IF talle = 'XL' then
+RETURN 'OK';
+ELSE
+RETURN 'NO ES XL';
+END IF;
+
+END
