@@ -1,0 +1,18 @@
+Trigger 1:
+delimiter //
+create trigger cambio_tabla_envios after insert on envios
+for each row 
+begin
+  insert into articulos_donados (ID_ARTICULO, tipo_de_ropa, talle, color) values ('A REVISAR POR NUEVO ENVIO', 'A REVISAR POR NUEVO ENVIO','A REVISAR POR NUEVO ENVIO','A REVISAR POR NUEVO ENVIO');
+end//
+delimiter ;
+---------------------------------------------------------------------------------------------------
+Trigger 2:
+
+delimiter //
+create trigger cambio_tabla_usuarios after insert on usuarios
+for each row 
+begin
+  insert into articulos_donados (ID_ARTICULO, tipo_de_ropa, talle, color) values ('A REVISAR POR NUEVO USUARIO', 'A REVISAR POR NUEVO USUARIO','A REVISAR POR NUEVO USUARIO','A REVISAR POR NUEVO USUARIO');
+end//
+delimiter ;
