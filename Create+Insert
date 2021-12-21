@@ -1,0 +1,83 @@
+CREATE DATABASE ARROPAR;
+
+USE ARROPAR;
+
+
+CREATE TABLE Instituciones_de_caridad(
+	ID_Institucion int NOT NULL,
+	Nombre varchar(50) NOT NULL,
+	Direccion varchar(50) NOT NULL,
+    	Telefono int NOT NULL,
+    	Mail Varchar(50) NOT NULL,
+        Constraint pk_instituciones_de_caridad primary key(ID_Institucion)
+    );
+    
+INSERT Instituciones_de_caridad (ID_Institucion, Nombre, Direccion, Telefono, Mail) VALUES (2000, 'Casita', 'Av Corrientes 123', '11123456', 'casita@arropar.com');
+INSERT Instituciones_de_caridad (ID_Institucion, Nombre, Direccion, Telefono, Mail) VALUES (2001, 'Unicef', 'Av Siempreviva 456', '11155556', 'unicef@arropar.com');
+INSERT Instituciones_de_caridad (ID_Institucion, Nombre, Direccion, Telefono, Mail) VALUES (2002, 'Doname', 'Calle falsa 123', '11115956', 'doname@arropar.com');
+
+
+    CREATE TABLE Usuarios(
+	ID_usuarios int NOT NULL,
+	Nombre varchar(50) NOT NULL,
+	Mail varchar(50) NOT NULL,
+	Direccion varchar(50) NOT NULL,
+    Telefono int NOT NULL,
+    constraint pk_usuarios primary key(id_usuarios)
+    );
+
+INSERT Usuarios (ID_usuarios, Nombre, Direccion, Telefono, Mail) VALUES (4001, 'Juan', 'Av Corrientes 500', '11188456', 'Juan@gmail.com');
+INSERT Usuarios (ID_usuarios, Nombre, Direccion, Telefono, Mail) VALUES (4002, 'Pedro', 'Av Corrientes 550', '11189456', 'Pedro@gmail.com');
+INSERT Usuarios (ID_usuarios, Nombre, Direccion, Telefono, Mail) VALUES (4003, 'Luis', 'Av Corrientes 600', '11190456', 'Luis@gmail.com');
+INSERT Usuarios (ID_usuarios, Nombre, Direccion, Telefono, Mail) VALUES (4004, 'Maria', 'Av Corrientes 650', '11190456', 'Mery@gmail.com');
+INSERT Usuarios (ID_usuarios, Nombre, Direccion, Telefono, Mail) VALUES (4005, 'Roberto', 'Av Corrientes 700', '11190456', 'Rober@gmail.com');
+
+    
+	CREATE TABLE Modalidad_envios(
+	ID_Modalidad int NOT NULL,
+	Tipos_modalidad varchar(50) NOT NULL,
+	Descripcion_modalidad varchar(150) NOT NULL,
+    constraint pk_modalidad_envios primary key(id_modalidad)
+    );
+
+INSERT Modalidad_Envios (ID_Modalidad, Tipos_Modalidad, Descripcion_modalidad) VALUES (5000, 'Terrestre', 'Abarca todos los transportes terrestres');
+INSERT Modalidad_Envios (ID_Modalidad, Tipos_Modalidad, Descripcion_modalidad) VALUES (5001, 'Aerea', 'Abarca todos los transportes aereos');
+INSERT Modalidad_Envios (ID_Modalidad, Tipos_Modalidad, Descripcion_modalidad) VALUES (5002, 'Maritima', 'Abarca todos los transportes maritimos');
+
+CREATE TABLE Articulos_donados(
+	ID_Articulo int NOT NULL,
+	Tipo_de_ropa varchar(50) NOT NULL,
+	Talle varchar(50) NOT NULL,
+	Color varchar(50) NOT NULL,
+    Valor_estimado int NOT NULL,
+    Donante int NOT NULL,
+    Constraint pk_articulos_donados primary key(ID_articulo),
+    Constraint fk_usuarios foreign key(Donante) references Usuarios(id_usuarios)
+    );
+
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1000, 'Abrigo', 'XL', 'Rojo',1000,4001);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1001, 'Remera', 'L', 'Azul',2000,4002);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1002, 'Abrigo', 'L', 'Verde',2500,4003);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1003, 'Buzo', 'M', 'Verde',3000,4004);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1004, 'Pantalon', 'M', 'Rojo',3500,4005);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1005, 'Abrigo', 'XS', 'Azul',3600,4001);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1006, 'Pantalon', 'L', 'Verde',3700,4002);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1007, 'Remera', 'L', 'Negro',3800,4003);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1008, 'Pulover', 'S', 'Rojo',3900,4004);
+INSERT Articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1009, 'Abrigo', 'S', 'Rojo',3100,4005);
+INSERT articulos_donados (ID_Articulo, Tipo_de_ropa, Talle, Color, Valor_estimado,donante) VALUES (1010, 'Remera', 'XL', 'Blanco',3000,4001);
+
+    CREATE TABLE Envios(
+	ID_envios int NOT NULL,
+	Fecha date NOT NULL,
+	Transporte varchar(150) NOT NULL,
+    Via int NOT NULL,
+    constraint pk_envios primary key(Id_envios),
+	Constraint fk_modalidad_envios foreign key (Via) references Modalidad_envios(id_modalidad)
+    );
+    
+    INSERT Envios (ID_envios, Fecha, Transporte,via) VALUES (3000, CAST('2021-01-01' AS DATE), 'Camioneta',5000);
+    INSERT Envios (ID_envios, Fecha, Transporte,via) VALUES (3001, CAST('2021-02-01' AS DATE), 'Auto',5000);
+    INSERT Envios (ID_envios, Fecha, Transporte,via) VALUES (3002, CAST('2021-03-01' AS DATE), 'Camion',5000);
+	INSERT Envios (ID_envios, Fecha, Transporte,via) VALUES (3003, CAST('2021-04-01' AS DATE), 'Avion',5001);
+	INSERT Envios (ID_envios, Fecha, Transporte,via) VALUES (3004, CAST('2021-05-01' AS DATE), 'Barco',5002);
