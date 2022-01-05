@@ -1,0 +1,47 @@
+
+START transaction;
+DELETE FROM arropar.articulos_donados
+WHERE ID_Articulo =1001;
+ROLLBACK;
+COMMIT;
+
+-------------------------------------------------------------------------------------
+
+START transaction;
+INSERT INTO arropar.articulos_donados
+		(id_articulo, tipo_de_ropa, Talle,Color,Valor_estimado,Donante)
+VALUES
+		(1020,'Abrigo','XL','Azul',3000,4001);
+ 
+ INSERT INTO arropar.articulos_donados
+		(id_articulo, tipo_de_ropa, Talle,Color,Valor_estimado,Donante)
+VALUES
+		(1021,'Abrigo','XL','Azul',3000,4001);
+    
+ INSERT INTO arropar.articulos_donados
+		(id_articulo, tipo_de_ropa, Talle,Color,Valor_estimado,Donante)
+VALUES
+		(1022,'Abrigo','XL','Azul',3000,4001);
+INSERT INTO arropar.articulos_donados
+		(id_articulo, tipo_de_ropa, Talle,Color,Valor_estimado,Donante)
+VALUES
+		(1023,'Abrigo','XL','Azul',3000,4001);
+ INSERT INTO arropar.articulos_donados
+		(id_articulo, tipo_de_ropa, Talle,Color,Valor_estimado,Donante)
+SAVEPOINT Registro_4;
+VALUES
+		(1024,'Abrigo','XL','Azul',3000,4001);
+ INSERT INTO arropar.articulos_donados
+		(id_articulo, tipo_de_ropa, Talle,Color,Valor_estimado,Donante)
+VALUES
+		(1025,'Abrigo','XL','Azul',3000,4001);
+ INSERT INTO arropar.articulos_donados
+		(id_articulo, tipo_de_ropa, Talle,Color,Valor_estimado,Donante)
+VALUES
+		(1026,'Abrigo','XL','Azul',3000,4001);
+INSERT INTO arropar.articulos_donados
+		(id_articulo, tipo_de_ropa, Talle,Color,Valor_estimado,Donante)
+VALUES
+		(1027,'Abrigo','XL','Azul',3000,4001);
+SAVEPOINT Registro_8;
+ROLLBACK TO Registro_4;
