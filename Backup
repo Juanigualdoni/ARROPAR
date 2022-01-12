@@ -1,0 +1,5 @@
+// Backup de BBDD arropar con las tablas//
+
+mysqldump [options] Arropar [Articulos_donados, usuarios, envíos, modalidad_envíos, instituciones_de_Caridad]
+
+mysqldump -u [Juanigualdoni] -p [Arropar] [Articulos_donados, usuarios, envíos, modalidad_envíos, instituciones_de_Caridad] > [Arropar].sql
